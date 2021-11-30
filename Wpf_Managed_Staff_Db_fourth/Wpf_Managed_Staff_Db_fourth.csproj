@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="View\AddNewDepartmentWindow - Copy %282%29.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>AddNewDepartmentWindow.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="View\AddNewDepartmentWindow - Copy - Copy.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>AddNewDepartmentWindow - Copy.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="View\AddNewDepartmentWindow - Copy.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>AddNewDepartmentWindow.xaml.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>
