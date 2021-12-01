@@ -17,9 +17,9 @@ namespace Wpf_Managed_Staff_Db_fourth.View
     /// <summary>
     /// Interaction logic for EditDepartment.xaml
     /// </summary>
-    public partial class EditDepartment : Window
+    public partial class EditDepartmentWindow : Window
     {
-        public EditDepartment()
+        public EditDepartmentWindow()
         {
             InitializeComponent();
         }

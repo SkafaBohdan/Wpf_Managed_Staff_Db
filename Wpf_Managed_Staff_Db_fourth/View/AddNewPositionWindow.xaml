@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Managed_Staff_Db_fourth.View"
         mc:Ignorable="d"
-        Title="AddNewPositionWindow" Height="300" Width="300">
+        Title="AddNewPositionWindow" Height="300" Width="300"
+        Name="AddNewPositionWind">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -16,14 +17,22 @@
                     VerticalAlignment="Center"
                     Width="200">
             <TextBlock Text="Name"/>
-            <TextBox Name="s1" />
+            <TextBox Name="NameBlock" Text="{Binding PositionName}" />
             <TextBlock Text="Salary"/>
-            <TextBox Name="s2" />
+            <TextBox Name="SalaryBlock" 
+                     Text="{Binding PositionSalary}"
+                     PreviewTextInput="PreviewTextInput"/>
             <TextBlock Text="Max of vacancies"/>
-            <TextBox Name="s3" />
+            <TextBox Name="MaxBlock" 
+                     Text="{Binding PositionMaxNumber}"
+                     PreviewTextInput="PreviewTextInput"/>
             <TextBlock Text="Department"/>
-            <ComboBox />
+            <ComboBox ItemsSource="{Binding AllDepartments}" 
+                      SelectedItem="{Binding PositionDepartmnet}"
+                      DisplayMemberPath="Name"/>
         </StackPanel>
-        <Button Grid.Row ="1" Content="Add Position"/>
+        <Button Grid.Row ="1" Content="Add Position" 
+                Command="{Binding AddNewPosition}"
+                CommandParameter="{Binding ElementName=AddNewPositionWind}"/>
     </Grid>
 </Window>

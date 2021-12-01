@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Managed_Staff_Db_fourth.View"
         mc:Ignorable="d"
-        Title="AddNewDepartmentWindow" Height="300" Width="300">
+        Title="AddNewDepartmentWindow" Height="300" Width="300"
+        Name="AddNewDepartmentWind">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -16,8 +17,10 @@
                     VerticalAlignment="Center"
                     Width="200">
             <TextBlock Text="Name"/>
-            <TextBox Name="s1" />
+            <TextBox Name="DepartNameBlock" Text="{Binding DepartmentName}" />
         </StackPanel>
-        <Button Grid.Row ="1" Content="Add Department"/>
+        <Button Grid.Row ="1" Content="Add Department" 
+                Command="{Binding AddNewDepartment}" 
+                CommandParameter="{Binding ElementName=AddNewDepartmentWind}"/>
     </Grid>
 </Window>

@@ -51,7 +51,7 @@ namespace Wpf_Managed_Staff_Db_fourth.Models
                 bool checkExist = db.Departments.Any(el => el.Name == name);
                 if (!checkExist)
                 {
-                    Department newDepartment = new Department() { Name = name };
+                    Department newDepartment = new Department { Name = name };
                     db.Departments.Add(newDepartment);
                     db.SaveChanges();
                     result = "Good add!";
@@ -71,12 +71,12 @@ namespace Wpf_Managed_Staff_Db_fourth.Models
                 bool checkExist = db.Positions.Any(el => el.Name == name && el.Salary == salary);
                 if (!checkExist)
                 {
-                    Position newPositions = new Position()
+                    Position newPositions = new Position
                     { 
                         Name = name, 
                         Salary = salary, 
                         MaxNumber = maxNumber, 
-                        Department = department 
+                        DepartmentId = department.Id 
                     };
                     db.Positions.Add(newPositions);
                     db.SaveChanges();
@@ -97,7 +97,7 @@ namespace Wpf_Managed_Staff_Db_fourth.Models
                 el.SurName == surName && el.Position == position);
                 if (!checkExist)
                 {
-                    User newUser = new User() 
+                    User newUser = new User
                     { 
                         Name = name,
                         SurName = surName,

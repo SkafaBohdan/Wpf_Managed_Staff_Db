@@ -19,9 +19,15 @@ namespace Wpf_Managed_Staff_Db_fourth.View
     /// </summary>
     public partial class MessageView : Window
     {
-        public MessageView()
+        public MessageView(string text)
         {
             InitializeComponent();
+            MessageText.Text = text;
+        }
+
+        private void Button_Close(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

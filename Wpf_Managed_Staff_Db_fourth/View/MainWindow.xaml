@@ -16,31 +16,42 @@
                 <TabItem.Header>
                     <TextBlock Text="Staff"/>
                 </TabItem.Header>
-                <ListView>
+                <ListView x:Name="ViewAllUsers" ItemsSource="{Binding AllUsers}">
                     <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Name"/>
-                            <GridViewColumn Header="SurName"/>
-                            <GridViewColumn Header="Phone"/>
-                            <GridViewColumn Header="Salary"/>
-                            <GridViewColumn Header="Position"/>
-                            <GridViewColumn Header="Department"/>
+                        <GridView >
+                            <GridViewColumn Header="Name"
+                                             DisplayMemberBinding="{Binding Path=Name}"/>
+                            <GridViewColumn Header="SurName"
+                                             DisplayMemberBinding="{Binding Path=SurName}"/>
+                            <GridViewColumn Header="Phone"
+                                             DisplayMemberBinding="{Binding Path=Phone}"/>
+                            <GridViewColumn Header="Salary"
+                                             DisplayMemberBinding="{Binding Path=Position.Salary}"/>
+                            <GridViewColumn Header="Position"
+                                             DisplayMemberBinding="{Binding Path=Position.Name}"/>
+                            <GridViewColumn Header="Department"
+                                             DisplayMemberBinding="{Binding Path=Position.Department.Name}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
             </TabItem>
             <TabItem Name="PositionTag">
                 <TabItem.Header>
-                    <TextBlock Text="Position"/>
+                    <TextBlock Text="Position" />
                 </TabItem.Header>
-                <ListView>
+                <ListView x:Name="ViewAllPositions" ItemsSource="{Binding AllPosition}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name"/>
-                            <GridViewColumn Header="SurName"/>
-                            <GridViewColumn Header="Count of staffs"/>
-                            <GridViewColumn Header="Max number"/>
-                            <GridViewColumn Header="Department"/>
+                            <GridViewColumn Header="Name"
+                                            DisplayMemberBinding="{Binding Path=Name}"/>
+                            <GridViewColumn Header="SurName"
+                                             DisplayMemberBinding="{Binding Path=Salary}"/>
+                            <GridViewColumn Header="Count of staffs"
+                                             DisplayMemberBinding="{Binding Path=Users.Count}"/>
+                            <GridViewColumn Header="Max number"
+                                             DisplayMemberBinding="{Binding Path=MaxNumber}"/>
+                            <GridViewColumn Header="Department"
+                                             DisplayMemberBinding="{Binding Path=Department.Name}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -49,16 +60,24 @@
                 <TabItem.Header>
                     <TextBlock Text="Departments"/>
                 </TabItem.Header>
-                <ListView>
+                <ListView x:Name="ViewAllDepartments" ItemsSource="{Binding AllDepartments}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name"/>
-                            <GridViewColumn Header="Counts of positions"/>
+                            <GridViewColumn Header="Name"
+                                            DisplayMemberBinding="{Binding Path=Name}"/>
+                            <GridViewColumn Header="Counts of positions"
+                                           />
                         </GridView>
                     </ListView.View>
                 </ListView>
             </TabItem>
         </TabControl>
+        <StackPanel Grid.Row="1" Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Content="New User" Command="{Binding OpenAddNewUserWindow}" Margin="0 0 5 0" />
+            <Button Content="New Position" Command="{Binding OpenAddNewPositiontWindow}" Margin="0 0 5 0" />
+            <Button Content="New Departments" Command="{Binding OpenAddNewDepartmentWindow}"  />
+        </StackPanel>
     </Grid>
 </Window>
 
