@@ -16,13 +16,13 @@
                     VerticalAlignment="Center"
                     Width="200">
             <TextBlock Text="Name"/>
-            <TextBox Name="" />
+            <TextBox Name="s1" />
             <TextBlock Text="SurName"/>
-            <TextBox Name="1" />
+            <TextBox Name="s2" />
             <TextBlock Text="Phone"/>
-            <TextBox Name="2" />
+            <TextBox Name="s3" />
             <TextBlock Text="Max of vacancies"/>
-            <TextBox Name="3" />
+            <TextBox Name="s4" />
             <TextBlock Text="Position"/>
             <ComboBox />
         </StackPanel>
