@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Managed_Staff_Db_fourth.View"
         mc:Ignorable="d"
-      Title="EditNewUserWindow" Height="300" Width="300">
+      Title="EditNewUserWindow" Height="300" Width="300"
+        Name="EditNewUserWindow">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -15,18 +16,30 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Width="200">
-            <TextBlock Text="Name"/>
-            <TextBox Name="s1" />
-            <TextBlock Text="SurName"/>
-            <TextBox Name="s2" />
-            <TextBlock Text="Phone"/>
-            <TextBox Name="s3" />
-            <TextBlock Text="Max of vacancies"/>
-            <TextBox Name="s4" />
-            <TextBlock Text="Position"/>
-            <ComboBox />
+            <TextBlock Text="New name"/>
+            <TextBox Text="{Binding UserName}" />
+            <TextBlock Text="New surname"/>
+            <TextBox Text="{Binding UserSurName}" />
+            <TextBlock Text="New phone"/>
+            <!--<TextBox Text="{Binding UserPhone}" PreviewTextInput="PreviewTextInput" />-->
+            <TextBox>
+                <TextBox.Text>
+                    <Binding Path="UserPhone">
+                        <Binding.ValidationRules>
+                            <ExceptionValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBlock Text="New position"/>
+            <ComboBox ItemsSource="{Binding AllPosition}"
+                      SelectedItem="{Binding UserPosition}"
+                      DisplayMemberPath="Name"/>
         </StackPanel>
-        <Button Grid.Row ="1" Content="Edit user(staff)"/>
+        <Button Grid.Row ="1" 
+                Content="Edit user(staff)"
+                Command="{Binding EditUser}"
+                CommandParameter="{Binding ElementName=EditNewUserWindow}"/>
     </Grid>
 </Window>
 

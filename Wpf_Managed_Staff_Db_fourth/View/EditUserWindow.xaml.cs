@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Wpf_Managed_Staff_Db_fourth.Models;
+using Wpf_Managed_Staff_Db_fourth.ViewModel;
 
 namespace Wpf_Managed_Staff_Db_fourth.View
 {
@@ -19,9 +21,15 @@ namespace Wpf_Managed_Staff_Db_fourth.View
     /// </summary>
     public partial class EditUserWindow : Window
     {
-        public EditUserWindow()
+        public EditUserWindow(User userToEdit)
         {
             InitializeComponent();
+            DataContext = new DataManagerVM();
+            DataManagerVM.SelectedUser = userToEdit;
+            DataManagerVM.UserName = userToEdit.Name;
+            DataManagerVM.UserSurName = userToEdit.SurName;
+            DataManagerVM.UserPhone = userToEdit.Phone;
+            DataManagerVM.UserPosition = userToEdit.UserPosition;
         }
     }
 }

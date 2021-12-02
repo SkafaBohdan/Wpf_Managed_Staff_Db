@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Wpf_Managed_Staff_Db_fourth.Models;
+using Wpf_Managed_Staff_Db_fourth.ViewModel;
 
 namespace Wpf_Managed_Staff_Db_fourth.View
 {
@@ -19,9 +21,12 @@ namespace Wpf_Managed_Staff_Db_fourth.View
     /// </summary>
     public partial class EditDepartmentWindow : Window
     {
-        public EditDepartmentWindow()
+        public EditDepartmentWindow(Department department)
         {
             InitializeComponent();
+            DataContext = new DataManagerVM();
+            DataManagerVM.SelectedDepartment = department;
+            DataManagerVM.DepartmentName = department.Name;
         }
     }
 }

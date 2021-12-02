@@ -11,12 +11,20 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <TabControl Grid.Row="0">
-            <TabItem Name="UsersTag">
+        <TabControl Grid.Row="0" SelectedItem="{Binding SelectedTabItem}">
+            <TabItem Name="UsersTab">
                 <TabItem.Header>
                     <TextBlock Text="Staff"/>
                 </TabItem.Header>
-                <ListView x:Name="ViewAllUsers" ItemsSource="{Binding AllUsers}">
+                <TabItem.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Edit" Command="{Binding OpenEditItemWindow}"/>
+                        <MenuItem Header="Delete" Command="{Binding DeleteItem}"/>
+                    </ContextMenu>
+                </TabItem.ContextMenu>
+                <ListView x:Name="ViewAllUsers" 
+                          ItemsSource="{Binding AllUsers}"
+                          SelectedItem="{Binding SelectedUser}">
                     <ListView.View>
                         <GridView >
                             <GridViewColumn Header="Name"
@@ -35,11 +43,19 @@
                     </ListView.View>
                 </ListView>
             </TabItem>
-            <TabItem Name="PositionTag">
+            <TabItem Name="PositionTab">
                 <TabItem.Header>
                     <TextBlock Text="Position" />
                 </TabItem.Header>
-                <ListView x:Name="ViewAllPositions" ItemsSource="{Binding AllPosition}">
+                <TabItem.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Edit" Command="{Binding OpenEditItemWindow}"/>
+                        <MenuItem Header="Delete" Command="{Binding DeleteItem}"/>
+                    </ContextMenu>
+                </TabItem.ContextMenu>
+                <ListView x:Name="ViewAllPositions" 
+                          ItemsSource="{Binding AllPosition}"
+                          SelectedItem="{Binding SelectedPosition}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name"
@@ -56,11 +72,19 @@
                     </ListView.View>
                 </ListView>
             </TabItem>
-            <TabItem Name="DepartmentsTag">
+            <TabItem Name="DepartmentsTab">
                 <TabItem.Header>
                     <TextBlock Text="Departments"/>
                 </TabItem.Header>
-                <ListView x:Name="ViewAllDepartments" ItemsSource="{Binding AllDepartments}">
+                <TabItem.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Edit" Command="{Binding OpenEditItemWindow}"/>
+                        <MenuItem Header="Delete" Command="{Binding DeleteItem}"/>
+                    </ContextMenu>
+                </TabItem.ContextMenu>
+                <ListView x:Name="ViewAllDepartments" 
+                          ItemsSource="{Binding AllDepartments}"
+                          SelectedItem="{Binding SelectedDepartment}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name"
